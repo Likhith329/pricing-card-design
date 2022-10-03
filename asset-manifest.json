@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/pricing-card-design/static/css/main.f5ae6e78.css",
+    "main.js": "/pricing-card-design/static/js/main.4619fc94.js",
+    "static/js/787.1f0b2890.chunk.js": "/pricing-card-design/static/js/787.1f0b2890.chunk.js",
+    "index.html": "/pricing-card-design/index.html",
+    "main.f5ae6e78.css.map": "/pricing-card-design/static/css/main.f5ae6e78.css.map",
+    "main.4619fc94.js.map": "/pricing-card-design/static/js/main.4619fc94.js.map",
+    "787.1f0b2890.chunk.js.map": "/pricing-card-design/static/js/787.1f0b2890.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5ae6e78.css",
+    "static/js/main.4619fc94.js"
+  ]
+}
