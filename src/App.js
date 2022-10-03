@@ -1,92 +1,83 @@
 import "./index.css";
 import {useState} from 'react';
-import {movies}  from './movies' ;
+
 
 export default function App() {
+   
+  const element=[
+    [
+    {name:"Single User",bl:"true"},
+    {name:"5GB Storage",bl:"true"},
+    {name:"Unlimited Public Projects",bl:"true"},
+    {name:"Community Access",bl:"true"},
+    {name:"Unlimited private Projects",bl:"false"},
+    {name:"Dedicated Phone Support",bl:"false"},
+    {name:"Free Subdomain",bl:"false"},
+    {name:"Monthly Status Reports",bl:"false"}
+    ],
+    [ 
+      {name:"5 Users",bl:"true"},
+      {name:"50GB Storage",bl:"true"},
+      {name:"Unlimited Public Projects",bl:"true"},
+      {name:"Community Access",bl:"true"},
+      {name:"Unlimited private Projects",bl:"true"},
+      {name:"Dedicated Phone Support",bl:"true"},
+      {name:"Free Subdomain",bl:"true"},
+      {name:"Monthly Status Reports",bl:"false"}
+    ],
+    [ 
+      {name:"Single User",bl:"true"},
+    {name:"5GB Storage",bl:"true"},
+    {name:"Unlimited Public Projects",bl:"true"},
+    {name:"Community Access",bl:"true"},
+    {name:"Unlimited private Projects",bl:"true"},
+    {name:"Dedicated Phone Support",bl:"true"},
+    {name:"Free Subdomain",bl:"true"},
+    {name:"Monthly Status Reports",bl:"true"}
+    ]
+  ]
+   
+  var number=0
+   
+  return(
+   <div className="cards">
+    {element.map(x=>(
+      <div className="card">
+        <CardInfo arr={x} k={number++}/>
+      </div>
+    ))}
+   </div>
+  )
 
-const cards=[
-  {
-  title:"Saaho",
-  rating:"It's show time!",
-  pic:"https://upload.wikimedia.org/wikipedia/en/6/6b/Saaho_poster.jpg"
-},
-{
-  title:"Rashe Shyam",
-  rating:"I wont tell you!",
-  pic:"https://m.media-amazon.com/images/M/MV5BZDQ5YjAxMmYtOGM3Zi00MWU2LWJmOTMtZjhhYjkyNGQ1NjE3XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_QL75_UX380_CR0,4,380,562_.jpg"
-},
-{
-  title:"Baahubali 2 -The conclusion",
-  rating:"Jhai Mahishmathi!!",
-  pic:"https://upload.wikimedia.org/wikipedia/en/9/93/Baahubali_2_The_Conclusion_poster.jpg"
 }
-
-]
-
-
-
-
+  
+function CardInfo({arr,k}){
+  
+  const head=[
+    {name:"FREE",price:"$0"},
+    {name:"PLUS",price:"$9"},
+    {name:"PRO",price:"$49"}
+  ]
+  
   return(
     <div>
-      <h1>Book My Movie</h1>
-   <div className="cards">
-     {movies.items.map(x =>(
-      <Card title={x.title}  rating={x.imDbRating} pic={x.image} description={x.plot}/>
-     ) )}
-     
-    </div>
-    </div>
-  )
-
-}
-
-
-function Card({title,rating,pic,description}){
- 
-  return(
-    <div className="card  text-center">
-      <img className="card-img-top"  src={pic}/>
-      <div className="card-body">
-        <div className="title">{title}</div>
-        <div className="contents">
-        <div> IMBD rating: ⭐ {rating}</div>
-        <div className="description">{description}</div>
-        <a href="https://c.tenor.com/j0aqC3WGwWcAAAAd/nenu-maree-antha-vedava-la.gif" target={"_blank"}><button className="btn btn-success">Book tickets</button></a>
-        <Likeb/>
+      <div className="header">
+        <div className="sbsc">
+          {head[k].name}
         </div>
+        <div>
+          <span className="price">{head[k].price}</span>
+          <span className="month">/month</span>
+        </div>
+        <hr></hr>
       </div>
-      
+      <div className="card-body">
+          {arr.map(y=>(
+                  <section style={{color:y.bl=="false"?"rgb(0, 0, 0,0.3)":''}}><span>{y.bl=="true"?"✔": y.bl=="false"?"✘":""}</span>{y.name}</section>
+                ))}
+      <button className="btn btn-primary rounded-pill">Button</button>   
+      </div>
     </div>
   )
 }
 
-function Likeb(){
-  const [like,setLike]=useState(0)
-  const [dislike,setDislike]=useState(0)
-    return(
-      <div>
-        <button className="btn btn-primary" onClick={()=>{setLike(like+1)}}>👍{like}</button>
-        <button className="btn btn-primary" onClick={()=>{setDislike(dislike+1)}}>👎{dislike}</button>
-      </div>
-      )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//JSX -- js XML  - JSX will be converted to javascript
-//webpack + babel
-
-//className - className="" in JS - reserved keyword
-// {} = Template syntax
-// props -object - you can pass like an argument in a function
