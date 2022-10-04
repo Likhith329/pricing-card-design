@@ -26,7 +26,7 @@ export default function App() {
       {name:"Monthly Status Reports",bl:"false"}
     ],
     [ 
-      {name:"Single User",bl:"true"},
+      {name:"Unlimited Users",bl:"true"},
     {name:"5GB Storage",bl:"true"},
     {name:"Unlimited Public Projects",bl:"true"},
     {name:"Community Access",bl:"true"},
